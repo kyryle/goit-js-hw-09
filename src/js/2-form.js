@@ -1,11 +1,5 @@
 const inputListiner = document.querySelector("form.feedback-form")
-let formData = {email: "", message: ""}
-inputListiner.addEventListener("input", event => {
-     formData = {email: `${inputListiner.elements.email.value}`, message: `${inputListiner.elements.message.value}`}
-    saveToLS("userData", formData)
-    console.log(formData)
-   
-})
+let formData = { email: "", message: "" }
 
 document.addEventListener("DOMContentLoaded", (e) => {
     
@@ -15,7 +9,14 @@ document.addEventListener("DOMContentLoaded", (e) => {
         inputListiner.elements.message.value = data.message
          formData = data
     }
-    });
+});
+    
+inputListiner.addEventListener("input", event => {
+     formData = {email: `${inputListiner.elements.email.value}`, message: `${inputListiner.elements.message.value}`}
+    saveToLS("userData", formData)
+    console.log(formData)
+   
+})
 
  function saveToLS(key, value) {
         const json = JSON.stringify(value)
