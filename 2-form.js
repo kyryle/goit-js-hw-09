@@ -1,0 +1,2 @@
+import"./assets/modulepreload-polyfill-B5Qt9EMX.js";/* empty css                      */const e=document.querySelector("form");e.addEventListener("input",m=>{let a=e.email.value,l=e.message.value,t=localStorage.setItem("Email",a),s=localStorage.setItem("Message",l);console.log(t),document.addEventListener("DOMContentLoaded",o=>{e.email.value=t,e.message.value=s})});
+//# sourceMappingURL=2-form.js.map
