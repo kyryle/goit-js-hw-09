@@ -66,13 +66,13 @@ const images = [
     description: 'Lighthouse Coast Sea',
   },
 ];
-const ulGallery = document.querySelector('ul')
+const ulGallery = document.querySelector('ul.gallery')
 
 function imageTemplate({ preview, original, description }) {
   return `<li>
             <a class="gallery-link" href="${original}">
               <img
-              class="gallery-pictures"
+              class="gallery-image"
               src="${preview}" 
               alt="${description}"
               data-source="${original}">

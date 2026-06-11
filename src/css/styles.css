@@ -31,7 +31,7 @@
   list-style-type: none
 }
 
-.gallery-pictures {
+.gallery-image {
   cursor: pointer;
   width: 360px;
   flex-basis: calc((100% - 1 * 24px)/4);
