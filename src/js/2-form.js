@@ -1,20 +1,23 @@
 const inputListiner = document.querySelector("form.feedback-form")
 inputListiner.addEventListener("input", event => {
-    let DataOfForm = new FormData(inputListiner)
-    const data = Object.fromEntries(DataOfForm.entries());
+    // let DataOfForm = new FormData(inputListiner)
+    let formData = {email: `${inputListiner.elements.email.value}`, message: `${inputListiner.elements.message.value}`}
     // const data = {
     //     email: DataOfForm.get("email"),
     //     message: DataOfForm.get("message"),
     // }
-        saveToLS("userData", data)
+    saveToLS("userData", formData)
+    console.log(formData)
    
 })
 
 document.addEventListener("DOMContentLoaded", (e) => {
+    
     const data = loadFromLS("userData")
     if (data) {
         inputListiner.elements.email.value = data.email
         inputListiner.elements.message.value = data.message
+        let formData = {email: `${data.email}`, message: `${data.message}`}
     }
     });
 
@@ -34,16 +37,15 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
 
 inputListiner.addEventListener("submit", event => {
-    let DataOfForm = new FormData(inputListiner)
-    const data = Object.fromEntries(DataOfForm.entries());
+    let formData = {email: `${inputListiner.elements.email.value}`, message: `${inputListiner.elements.message.value}`}
+    // const data = Object.fromEntries(DataOfForm.entries());
 
     event.preventDefault()
     if (inputListiner.elements.email.value.trim().length === 0 || inputListiner.elements.message.value.trim().length === 0) {
         return alert("fill in email and message")
     }
     inputListiner.reset()
-    console.log(data)
+    console.log(formData)
     localStorage.removeItem("userData")
-    DataOfForm = {}
-    console.log(DataOfForm)
+    // console.log(DataOfForm)
 })
